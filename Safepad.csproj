@@ -149,15 +149,10 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\lock-16x16.png" />
-    <Content Include="lock-16x16.ico" />
-    <Content Include="Resources\lock.ico" />
-    <None Include="Resources\lock16x16.ico" />
     <None Include="Resources\safepad.ico" />
     <None Include="Resources\Safepad pic 001 relief.jpg" />
     <Content Include="safepad-todo.txt" />
     <Content Include="safepad.ico" />
-    <Content Include="unlock-16x16.ico" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Client.3.5">

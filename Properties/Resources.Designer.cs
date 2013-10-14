@@ -67,13 +67,6 @@ namespace Safepad.Properties {
             }
         }
         
-        internal static System.Drawing.Icon lock16x16 {
-            get {
-                object obj = ResourceManager.GetObject("lock16x16", resourceCulture);
-                return ((System.Drawing.Icon)(obj));
-            }
-        }
-        
         internal static System.Drawing.Icon safepad {
             get {
                 object obj = ResourceManager.GetObject("safepad", resourceCulture);
