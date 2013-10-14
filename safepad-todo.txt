@@ -1,0 +1,52 @@
+BUGS:
+- TRC CipherStore.Decrypt is being logged, even entire files
+- sometimes all text is highlighted when return from a dialog 
+  - e.g. Save As, Cancel
+  - enter password, cancel
+  - select recent file, get msg box about can't find, choose yes
+- hide/show text checkbox doesn't always work in New Password dialog
+- While searc dialog is up, Ln X, Col Y on screen do not update.  
+  - also: up/down may not work properly depending on Ln/Col when
+          dialog was opened. E.g. start at 1,1 -- up searches won't work
+          after a couple down searches
+- can bring up two Search dialogs.  Second attempt to open should just
+  bring existing one to top.
+- sometimes the initial size of the window is tiny.  looks like default window min size
+
+Enhancements:
+- fade the unlocked icon a bit to give impression of disabled
+- Backup system
+- Replace (temporarily hidden)
+
+Dones
+* show/hide text does not work in Enter Password box
+* status bar: column/line number, lock icon for safepad files
+* Horiz scrollbar not visible when starting with Wordwrap off
+* MRU list?
+* settings: window size, wordwrap, font
+* when starts with a file open, all text is highlighted (bad)
+* enter on New Password screen doesn't press OK button. (Esc should do Cancel, too)
+* after Save As, app caption doesn't update
+* Sometimes Delete stops working (and disabled on Menu)
+  ** removed the feature.  (Let text box handle delete, no menu item needed.)
+* won't open files from command line if there are spaces in the name
+* open safepad file on startup, but cancel password entry: main form
+  is labeled Form1 instead of Untitled.
+* on password retry (reshow dlg after bad password):
+  * textbox does not have selection
+  * does not remember Show text setting
+* change default file open type to safepad + txt
+* ask to remove recent if not found
+* create an App icon adn attach to main form
+* added a log file
+
+
+Not-Dones:
+- Recent file list context menu: delete, move to top/bottom
+  --- VS doesn't do this.  Maybe context menus of menu items is non-standard?
+      Could do this by adding a layer of flyout menus beneath each file name
+
+Notes  
+- OS stopped updating jump list 
+  --- Path in registry (HKCR\Applications\SafePad.exe\shell\open\command) was
+      incorrect.  (Had moved the project.)  After correcting it started working again.
