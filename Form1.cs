@@ -484,17 +484,24 @@ namespace Safepad
       }
 
       private void mnuFind_Click(object sender, EventArgs e) {
-          var dlg = new FindDlg();
-          dlg.Caption   = _AppName;
-          dlg.FindStr   = (0 < txtMain.SelectionLength) ? txtMain.SelectedText : _sFind ;
-          dlg.fnFind    = findText;
-          dlg.MatchCase = _bFindMatchCase ;
-          dlg.SearchUp  = _bFindSearchUp ;
-          dlg.Show();
+         if (FindDlg.IsOpen) {
+            FindDlg.BringToFront();
+            return;
+         }
+         
+         var dlg = new FindDlg();
+         dlg.Caption   = _AppName;
+         dlg.FindStr   = (0 < txtMain.SelectionLength) ? txtMain.SelectedText : _sFind ;
+         dlg.fnFind    = findText;
+         dlg.MatchCase = _bFindMatchCase ;
+         dlg.SearchUp  = _bFindSearchUp ;
+         
+         dlg.Owner     = this; // keep FindDlg on top of main window                 
+         
+         dlg.Show();
       }
 
       private void mnuReplace_Click(object sender, EventArgs e) { }
-
 
       // --------------------------------------------------------------------------------
       // Recent files menu

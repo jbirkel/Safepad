@@ -14,8 +14,10 @@ namespace Safepad
       public string Caption { set { _caption   = value; } } string _caption;
       public string FindStr { set { _findStr   = value; } } string _findStr;
       public bool MatchCase { set { _matchCase = value; } } bool _matchCase;
-      public bool SearchUp  { set { _searchUp  = value; } } bool _searchUp;            
-   
+      public bool SearchUp  { set { _searchUp  = value; } } bool _searchUp;
+
+      public static bool IsOpen { get { return _bIsOpen; } } static bool _bIsOpen = false;
+      
       public  delegate bool del_Find ( string s, bool bMatchCase, bool bUp );
       public  del_Find fnFind { set { _fnFind = value; }}
       private del_Find _fnFind;
@@ -23,6 +25,7 @@ namespace Safepad
       public FindDlg()
       {
          InitializeComponent();
+         _bIsOpen = true;
       }
 
       private void FindDlg_Load(object sender, EventArgs e) {
@@ -42,8 +45,11 @@ namespace Safepad
 
       private void btnClose_Click(object sender, EventArgs e) {
          Close();
+         _bIsOpen = false;         
       }
 
-    
+      public static void BringToFront() { 
+         Application.OpenForms["FindDlg"].BringToFront();      
+      }      
    }
 }
